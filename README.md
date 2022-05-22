@@ -21,9 +21,9 @@ minikube start
 * 1) Followed the blog to create the image and push it to docker hub's personal account
 * 2) Created the configmap objects to hold the data replacing the .env file
 * 3) craeted the deployment,service,pv and pvc of redis and postgresql, integrating the configmaps  along with postgres, to cache and srtore the drkiq app data.
-* 4)craeting the deployments, for drkiq and sidekiq and service for drkiq with excuting rake commands on startup, sidekiq is created to replace unicorn.rb when unicorn command fails.
+* 4) craeting the deployments, for drkiq and sidekiq and service for drkiq with excuting rake commands on startup, sidekiq is created to replace unicorn.rb when unicorn command fails.
 * 5) Created the nginx objects are created in order to reverse the proxy of the drkiq application.
-* 6)Created a simple provisioning script to startup the kubernetes objects.
+* 6) Created a simple provisioning script to startup the kubernetes objects.
 
 
 
