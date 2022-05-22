@@ -27,7 +27,7 @@ minikube start
 
 
 
-##Future plans:
+## Future plans:
 * Resolve bugs 
 * Add token and password to secrets object.
 * Create a delete objects script.
