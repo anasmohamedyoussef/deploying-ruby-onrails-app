@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-configmap
+  namespace: rubyapp
+data:
+  DBUSER: "drkiq"
+  DBPASS: "instapass"

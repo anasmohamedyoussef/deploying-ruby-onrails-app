@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: rubyapp
+  name: drkiq-deployment
+  labels:
+    app: drkiq
+    version: "1"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: drkiq
+      version: "1"
+  template:
+    metadata:
+      labels:
+        app: drkiq
+        version: "1"
+    spec:
+      containers:  
+      - name: drkiq
+        command: 
+          ["/bin/sh","-c"]
+        args:
+          - rake db:reset;
+            rake db:migrate;
+            bundle exec unicorn -c config/unicorn.rb;
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8010
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8010
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+          periodSeconds: 10
+          failureThreshold: 3      
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "128Mi" 
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
+        image: anas149037/dockerizing-ruby-drkiq
+        envFrom:
+          - configMapRef:
+              name: drkiq-configmap
+        ports:
+          - containerPort: 8010
+        

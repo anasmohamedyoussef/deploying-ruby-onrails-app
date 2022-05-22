@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: rubyapp
+  name: postgres-deployment
+  labels:
+    app: postgres
+    version: "1"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+      version: "1"
+  template:
+    metadata:
+      labels:
+        app: postgres
+        version: "1"
+    spec:
+      containers:  
+      - name: postgres
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "128Mi"
+          limits:
+            cpu: "1000m"
+            memory: "256Mi"
+        image: postgres:14.2
+        env:
+        - name: DBUSER
+          valueFrom:
+            configMapKeyRef:
+              name: postgres-configmap
+              key: DBUSER
+        - name: DBPASS
+          valueFrom:
+            configMapKeyRef:
+              name: postgres-configmap
+              key: DBPASS
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-data
+        ports:
+          - containerPort: 5432
+      volumes:
+      - name: postgres-data
+        persistentVolumeClaim:
+          claimName: postgres-pv-claim

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: rubyapp
+  name: sidekiq-deployment
+  labels:
+    app: sidekiq
+    version: "1"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sidekiq
+      version: "1"
+  template:
+    metadata:
+      labels:
+        app: sidekiq
+        version: "1"
+    spec:
+      containers:  
+      - name: sidekiq
+        image: anas149037/nginx-rubyapp
+        command: ['bundle']
+        args: ['exec', 'sidekiq']
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "128Mi" 
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
+        envFrom:
+          - configMapRef:
+              name: drkiq-configmap
