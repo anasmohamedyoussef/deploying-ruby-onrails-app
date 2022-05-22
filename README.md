@@ -1,3 +1,5 @@
+# Hello, folks! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
+
 # deploying-ruby-onrails-app
 
 This the Readme file for the instruction of deploying drkiq ruby application on a kuebernetes cluster.
@@ -15,7 +17,7 @@ Minikube is a cluster that can be used locally and very easy to setup, the clust
 ```bash
 minikube start
 ```
-
+ Testme: http://localhost:30007
 
 ## The procedure of deploying the application:
 * 1) Followed the blog to create the image and push it to docker hub's personal account
@@ -25,7 +27,7 @@ minikube start
 * 5) Created the nginx objects are created in order to reverse the proxy of the drkiq application.
 * 6) Created a simple provisioning script to startup the kubernetes objects.
 
-
+T
 
 ## Future plans:
 * Resolve bugs 
