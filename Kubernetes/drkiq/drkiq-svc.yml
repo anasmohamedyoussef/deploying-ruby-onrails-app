@@ -4,7 +4,7 @@ metadata:
   labels:
     app: drkiq
     version: "1"
-  name: drkiq-deployment
+  name: drkiq
   namespace: rubyapp
 spec:
   ports:

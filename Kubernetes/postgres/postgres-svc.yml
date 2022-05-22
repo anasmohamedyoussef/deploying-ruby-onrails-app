@@ -5,7 +5,7 @@ metadata:
   labels:
     app: postgres
     version: "1"
-  name: postgres-deployment
+  name: postgres
   namespace: rubyapp
 spec:
   ports:
