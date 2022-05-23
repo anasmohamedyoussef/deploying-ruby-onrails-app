@@ -30,7 +30,6 @@ minikube start
 * 6) Created a simple provisioning script to startup the kubernetes objects.
 
 ## Future plans:
-* Resolve bugs 
 * Add token and password to secrets object.
 * Create a delete objects script.
 * Update the docker image to excute the rake commands instead of the deployment
