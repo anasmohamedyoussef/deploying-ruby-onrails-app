@@ -21,27 +21,11 @@ spec:
       containers:  
       - name: drkiq
         command: 
-          ["/bin/sh","-c"]
+          ["/bin/bash","-c"]
         args:
           - rake db:reset;
             rake db:migrate;
             bundle exec unicorn -c config/unicorn.rb;
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 8010
-          initialDelaySeconds: 5
-          timeoutSeconds: 1
-          periodSeconds: 10
-          failureThreshold: 3
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 8010
-          initialDelaySeconds: 30
-          timeoutSeconds: 1
-          periodSeconds: 10
-          failureThreshold: 3      
         resources:
           requests:
             cpu: "500m"

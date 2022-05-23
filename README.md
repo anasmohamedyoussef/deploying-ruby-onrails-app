@@ -19,7 +19,7 @@ Minikube is a cluster that can be used locally and very easy to setup, the clust
 ```bash
 minikube start
 ```
- Testme: http://localhost:30007
+ Testme: http://localhost:32477
 
 ## The procedure of deploying the application:
 * 1) Followed the blog to create the image and push it to docker hub's personal account
@@ -34,4 +34,31 @@ minikube start
 * Add token and password to secrets object.
 * Create a delete objects script.
 * Update the docker image to excute the rake commands instead of the deployment
-* Loadbalance with ingress-controller contour and ingress objects
+* ~~Loadbalance with an ingress-controller and ingress objects~~
+
+___
+
+#### Update 1:
+* Installing nginx Ingress controller to load balance and allow external access on drkiq container pod and updating the drkiq service as a nodeport on port 30106 and can be tested as follows:
+
+1) install minikube nginx ingress controller addon: 
+
+```bash
+minikube addons enable ingress
+```
+2) Created a new service for drkiq-deployment and chenged it's typ from ClusterIP to a nodePort and applied it using kubectl command
+
+3) Now running the following command should return the i<node-ip>:<node-port>:
+
+```bash
+minikube service drkiq -n=rubyapp --url
+```
+4) finally created and applied the ingress object with drkiq as a host.
+
+5) Now it's all done test through: http://localhost:30106
+
+6) At this point there is no use for the ingress-deployment and service that we have so we can just delete them.
+
+```bash
+kubectl delete deployment/nginx-deployment --namespace=rubyapp
+```

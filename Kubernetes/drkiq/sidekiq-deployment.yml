@@ -20,7 +20,7 @@ spec:
     spec:
       containers:  
       - name: sidekiq
-        image: anas149037/nginx-rubyapp
+        image: anas149037/dockerizing-ruby-drkiq
         command: ['bundle']
         args: ['exec', 'sidekiq']
         resources:

@@ -8,12 +8,13 @@ metadata:
   namespace: rubyapp
 spec:
   ports:
-  - port: 8020
+  - nodePort: 32477
+    port: 8020
     protocol: TCP
     targetPort: 8020
-    nodePort: 30007
   selector:
     app: nginx
     version: "1"
+  type: NodePort
 status:
   loadBalancer: {}

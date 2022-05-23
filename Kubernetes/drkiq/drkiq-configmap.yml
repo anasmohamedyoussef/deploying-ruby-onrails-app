@@ -4,9 +4,9 @@ metadata:
   name: drkiq-configmap
   namespace: rubyapp
 data:
-  SECRET_TOKEN: "InstaToken"
+  SECRET_TOKEN: Wa4Kdu6hMt3tYKm4jb9p4vZUuc7jBVFw
   WORKER_PROCESSES: "1"
-  LISTEN_ON: "0.0.0.0:8010"
-  DATABASE_URL: postgresql://drkiq:instapass@postgres:5432/drkiq?encoding=utf8&pool=5&timeout=5000
-  CACHE_URL: "redis://redis:6379/0"
-  JOB_WORKER_URL: "redis://redis:6379/0"
+  LISTEN_ON: 0.0.0.0:8010
+  DATABASE_URL: postgresql://drkiq:test_db_password@postgres:5432/drkiq?encoding=utf8&pool=5&timeout=5000
+  CACHE_URL: redis://redis:6379/0
+  JOB_WORKER_URL: redis://redis:6379/0

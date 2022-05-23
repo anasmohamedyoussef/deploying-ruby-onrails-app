@@ -8,11 +8,13 @@ metadata:
   namespace: rubyapp
 spec:
   ports:
-  - port: 8010
+  - nodePort: 30106
+    port: 8010
     protocol: TCP
     targetPort: 8010
   selector:
     app: drkiq
     version: "1"
+  type: NodePort
 status:
   loadBalancer: {}
