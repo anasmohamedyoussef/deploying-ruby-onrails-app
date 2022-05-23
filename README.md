@@ -1,10 +1,8 @@
 # Hello, folks! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
 
-<<<<<<< HEAD
+
+
 ## deploying-ruby-onrails-app
-=======
-# deploying-ruby-onrails-app
->>>>>>> 775989e72e113aeb8406446bbf8e3c446446fcf7
 
 This the Readme file for the instruction of deploying drkiq ruby application on a kuebernetes cluster.
  the [blog](https://semaphoreci.com/community/tutorials/dockerizing-a-ruby-on-rails-application) that i followed was written by Nick Janetakis, This repo holds the kubernetes objects recquired to run the application on a kubernetes cluster, This cluster is built on Minikube on windows OS.
@@ -30,11 +28,6 @@ minikube start
 * 4) craeting the deployments, for drkiq and sidekiq and service for drkiq with excuting rake commands on startup, sidekiq is created to replace unicorn.rb when unicorn command fails.
 * 5) Created the nginx objects are created in order to reverse the proxy of the drkiq application.
 * 6) Created a simple provisioning script to startup the kubernetes objects.
-
-<<<<<<< HEAD
-=======
-T
->>>>>>> 775989e72e113aeb8406446bbf8e3c446446fcf7
 
 ## Future plans:
 * Resolve bugs 
