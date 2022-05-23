@@ -4,5 +4,5 @@ metadata:
   name: postgres-configmap
   namespace: rubyapp
 data:
-  DBUSER: "drkiq"
-  DBPASS: "instapass"
+  POSTGRES_USER: "drkiq"
+  POSTGRES_PASSWORD: "instapass"

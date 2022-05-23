@@ -29,16 +29,16 @@ spec:
             memory: "256Mi"
         image: postgres:14.2
         env:
-        - name: DBUSER
+        - name: POSTGRES_USER
           valueFrom:
             configMapKeyRef:
               name: postgres-configmap
-              key: DBUSER
-        - name: DBPASS
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
           valueFrom:
             configMapKeyRef:
               name: postgres-configmap
-              key: DBPASS
+              key: POSTGRES_PASSWORD
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: postgres-data
